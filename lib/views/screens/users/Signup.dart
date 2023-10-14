@@ -1,18 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:focusio/views/Pages/Home_Page.dart';
-import 'package:focusio/views/Pages/Signin.dart';
-
+import 'package:focusio/views/screens/users/Signin.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final _username = TextEditingController();
   final Name = TextEditingController();
   final _password = TextEditingController();
@@ -93,7 +91,7 @@ class _SignUpState extends State<SignUp> {
                               Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => const SignIn(),
+                                        builder: (context) => const SignInScreen(),
                                       ))
                                   .onError((error, stackTrace) =>
                                       print("Something is wrong"));

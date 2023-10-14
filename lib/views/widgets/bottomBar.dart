@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:focusio/views/Pages/Home_Page.dart';
-import 'package:focusio/views/Pages/Youtube_Page.dart';
-import 'package:focusio/views/screens/bottombar/StudyPtScreen.dart';
+import 'package:focusio/views/screens/bottombar/home_screen.dart';
+import 'package:focusio/views/screens/bottombar/studypt_screen.dart';
+import 'package:focusio/views/screens/bottombar/youtube_screen.dart';
 import 'package:focusio/views/screens/bottombar/analytics.dart';
 import 'package:focusio/views/widgets/Colors.dart';
+
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-class bottombar extends StatefulWidget {
-  const bottombar({super.key});
+class BottomBarWidget extends StatefulWidget {
+  const BottomBarWidget({super.key});
 
   @override
-  State<bottombar> createState() => _bottombarState();
+  State<BottomBarWidget> createState() => _BottomBarWidgetState();
 }
 
-class _bottombarState extends State<bottombar> {
+class _BottomBarWidgetState extends State<BottomBarWidget> {
   int _selectedIndex = 0;
 
-  final List _widgetOptions = const [
-    HomePage(),
-    YoutubePage(),
+  final List<Widget> _widgetOptions = const <Widget>[
+    HomeScreen(),
+    YoutubeScreen(),
     StudyPtScreen(),
     AnalyticsScreen()
   ];
@@ -29,7 +30,7 @@ class _bottombarState extends State<bottombar> {
           gap: 8,
           activeColor: Colors.white,
           tabBackgroundColor: darkLevel1,
-
+          backgroundColor: Colors.pink.shade50,
           tabs: const [
             GButton(
               icon: Icons.home,
@@ -37,19 +38,19 @@ class _bottombarState extends State<bottombar> {
               text: "Home",
             ),
             GButton(
-              icon: Icons.search,
-              iconColor: tealColor,
-              text: "Search",
-            ),
-            GButton(
               icon: Icons.video_library,
               iconColor: tealColor,
               text: "Youtube",
             ),
             GButton(
-              icon: Icons.person,
+              icon: Icons.computer,
               iconColor: tealColor,
-              text: "Profile",
+              text: "StudyPT",
+            ),
+            GButton(
+              icon: Icons.analytics,
+              iconColor: tealColor,
+              text: "Analytics",
             ),
           ],
         selectedIndex: _selectedIndex,
@@ -59,6 +60,7 @@ class _bottombarState extends State<bottombar> {
             });
         },
       ),
+      body: _widgetOptions.elementAt(_selectedIndex),
     );
   }
 }

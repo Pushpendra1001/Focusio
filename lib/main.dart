@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:focusio/views/Pages/Home_Page.dart';
-import 'package:focusio/views/Pages/Signin.dart';
-import 'package:focusio/views/Pages/Signup.dart';
+import 'package:focusio/views/screens/users/Signin.dart';
 import 'package:focusio/views/widgets/Colors.dart';
+import 'package:focusio/views/widgets/bottomBar.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
             background: darkLevel1, brightness: Brightness.light),
       ),
       debugShowCheckedModeBanner: false,
-      home: const SignIn(),
+      home: const SignInScreen(),
     );
   }
 }

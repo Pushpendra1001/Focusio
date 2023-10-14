@@ -1,19 +1,16 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:focusio/views/Pages/Youtube_Page.dart';
-import 'package:focusio/views/widgets/Colors.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   List Images = [
     "assets/images/demo_Image.png",
     "assets/images/demo_Image2.png",

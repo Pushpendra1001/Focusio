@@ -1,17 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:focusio/views/Pages/Home_Page.dart';
-import 'package:focusio/views/Pages/Signup.dart';
+import 'package:focusio/views/screens/bottombar/home_screen.dart';
+import 'package:focusio/views/screens/users/Signup.dart';
+import 'package:focusio/views/widgets/bottomBar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
 
   @override
-  State<SignIn> createState() => _SignInState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignInScreenState extends State<SignInScreen> {
   final _username = TextEditingController();
   final _password = TextEditingController();
 
@@ -80,7 +81,7 @@ class _SignInState extends State<SignIn> {
                           (value) => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const HomePage(),
+                              builder: (context) => const BottomBarWidget(),
                             ),
                           ),
                         )
@@ -106,7 +107,7 @@ class _SignInState extends State<SignIn> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SignUp(),
+                          builder: (context) => const SignUpScreen(),
                         ));
                   },
                   style: ElevatedButton.styleFrom(

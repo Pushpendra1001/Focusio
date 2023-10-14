@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class YoutubePage extends StatelessWidget {
-  const YoutubePage({super.key});
+class YoutubeScreen extends StatelessWidget {
+  const YoutubeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
