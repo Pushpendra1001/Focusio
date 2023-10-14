@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:focusio/views/Pages/Youtube_Page.dart';
 import 'package:focusio/views/widgets/Colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -19,6 +20,7 @@ class _HomePageState extends State<HomePage> {
     "assets/images/demo_Image.png",
     "assets/images/demo_Image2.png",
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,42 +126,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-          ),
-        ),
-      ),
-      bottomNavigationBar: Container(
-        color: Colors.transparent,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(35), color: darkLevel1),
-            child: const GNav(
-                gap: 8,
-                activeColor: Colors.white,
-                tabBackgroundColor: darkLevel1,
-                tabs: [
-                  GButton(
-                    icon: Icons.home,
-                    iconColor: tealColor,
-                    text: "Home",
-                  ),
-                  GButton(
-                    icon: Icons.search,
-                    iconColor: tealColor,
-                    text: "Search",
-                  ),
-                  GButton(
-                    icon: Icons.video_library,
-                    iconColor: tealColor,
-                    text: "Youtube",
-                  ),
-                  GButton(
-                    icon: Icons.person,
-                    iconColor: tealColor,
-                    text: "Profile",
-                  ),
-                ]),
           ),
         ),
       ),

@@ -13,7 +13,6 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   final _username = TextEditingController();
-
   final _password = TextEditingController();
 
   @override
