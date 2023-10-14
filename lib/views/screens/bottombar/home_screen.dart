@@ -30,20 +30,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
-                    child: Text(
-                      "Focusio",
-                      style: GoogleFonts.aboreto(fontSize: 40),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
+                // Align(
+                //   alignment: Alignment.topLeft,
+                //   child: Padding(
+                //     padding:
+                //         const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
+                //     child: Text(
+                //       "Focusio",
+                //       style: GoogleFonts.aboreto(fontSize: 40),
+                //     ),
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: TextField(
