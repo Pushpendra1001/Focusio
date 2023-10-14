@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:focusio/views/Pages/Home_Page.dart';
 import 'package:focusio/views/Pages/Signin.dart';
+import 'package:focusio/views/Pages/Signup.dart';
 import 'firebase_options.dart';
 
 void main() async {

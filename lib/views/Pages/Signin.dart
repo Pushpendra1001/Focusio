@@ -25,7 +25,6 @@ class _SignInState extends State<SignIn> {
     var phoneWidth = MediaQuery.of(context).size.width;
     return Center(
       child: Scaffold(
-        // backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -48,6 +47,7 @@ class _SignInState extends State<SignIn> {
                 controller: _username,
                 hint_text: "Enter Your Email",
                 obscuretext: false,
+                hide: false,
               ),
               const SizedBox(
                 height: 15,
@@ -57,6 +57,7 @@ class _SignInState extends State<SignIn> {
                 controller: _password,
                 hint_text: "Enter Password",
                 obscuretext: true,
+                hide: true,
               ),
 
               // forget password line
@@ -206,13 +207,14 @@ class login_field extends StatelessWidget {
   final controller;
   final String hint_text;
   final bool obscuretext;
+  final bool hide;
 
-  const login_field({
-    super.key,
-    this.controller,
-    required this.hint_text,
-    required this.obscuretext,
-  });
+  const login_field(
+      {super.key,
+      this.controller,
+      required this.hint_text,
+      required this.obscuretext,
+      required this.hide});
 
   @override
   Widget build(BuildContext context) {
@@ -223,6 +225,8 @@ class login_field extends StatelessWidget {
         decoration: InputDecoration(
           border: const OutlineInputBorder(),
           hintText: hint_text,
+          suffixIcon:
+              hide ? const Icon(Icons.remove_red_eye) : const SizedBox(),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.grey.shade700),
             borderRadius: const BorderRadius.all(Radius.circular(8)),
