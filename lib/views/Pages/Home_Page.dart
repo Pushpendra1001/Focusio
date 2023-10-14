@@ -53,6 +53,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     hintText: "What You Want to learn ?",
                     suffixIcon: Icon(Icons.search),
+                    focusColor: Colors.black,
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),

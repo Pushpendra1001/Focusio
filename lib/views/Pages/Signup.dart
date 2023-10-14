@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:focusio/views/Pages/Home_Page.dart';
+import 'package:focusio/views/Pages/Signin.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,8 +14,9 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final _username = TextEditingController();
-
+  final Name = TextEditingController();
   final _password = TextEditingController();
+  final Otp = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class _SignUpState extends State<SignUp> {
                 height: 30,
               ),
               login_field(
-                controller: _username,
+                controller: Name,
                 hint_text: "What's Your Name ",
                 obscuretext: false,
                 SendButton: false,
@@ -47,9 +49,9 @@ class _SignUpState extends State<SignUp> {
                 height: 15,
               ),
               login_field(
-                controller: _password,
+                controller: _username,
                 hint_text: "Enter Your Email",
-                obscuretext: true,
+                obscuretext: false,
                 SendButton: false,
               ),
               const SizedBox(
@@ -65,9 +67,9 @@ class _SignUpState extends State<SignUp> {
                 height: 15,
               ),
               login_field(
-                controller: _password,
+                controller: Otp,
                 hint_text: "OTP",
-                obscuretext: true,
+                obscuretext: false,
                 SendButton: true,
               ),
               const SizedBox(
@@ -80,8 +82,20 @@ class _SignUpState extends State<SignUp> {
                 width: MediaQuery.of(context).size.width - 80,
                 height: 60,
                 child: ElevatedButton(
+                  // here is an error user not going to signup page
                   onPressed: () {
-                    Navigator.pop(context);
+                    FirebaseAuth.instance
+                        .createUserWithEmailAndPassword(
+                            email: _username.text, password: _password.text)
+                        .then((value) => (value) {
+                              Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const SignIn(),
+                                      ))
+                                  .onError((error, stackTrace) =>
+                                      print("Something is wrong"));
+                            });
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white, elevation: 7),
