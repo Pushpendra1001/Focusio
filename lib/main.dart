@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:focusio/views/screens/users/Signin.dart';
@@ -22,7 +23,14 @@ class MyApp extends StatelessWidget {
             background: darkLevel1, brightness: Brightness.light),
       ),
       debugShowCheckedModeBanner: false,
-      home: const SignInScreen(),
+      home: StreamBuilder(stream: FirebaseAuth.instance.authStateChanges(), builder: (context, snapshot) {
+        if(snapshot.hasData) {
+          return const BottomBarWidget();
+        }
+        else {
+          return const SignInScreen();
+        }
+      })
     );
   }
 }

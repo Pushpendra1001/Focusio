@@ -4,6 +4,7 @@ import 'package:focusio/views/screens/bottombar/home_screen.dart';
 import 'package:focusio/views/screens/users/Signup.dart';
 import 'package:focusio/views/widgets/bottomBar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:toast/toast.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -13,8 +14,8 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  final _username = TextEditingController();
-  final _password = TextEditingController();
+  final TextEditingController _username = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -73,21 +74,42 @@ class _SignInScreenState extends State<SignInScreen> {
                 width: MediaQuery.of(context).size.width - 80,
                 height: 60,
                 child: ElevatedButton(
-                  onPressed: () {
-                    FirebaseAuth.instance
-                        .signInWithEmailAndPassword(
-                            email: _username.text, password: _password.text)
-                        .then(
-                          (value) => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const BottomBarWidget(),
-                            ),
-                          ),
-                        )
-                        .onError(
-                            (error, stackTrace) => print("$error".toString()));
+                  onPressed: () async {
+                    try {
+                      UserCredential userCredential = await FirebaseAuth
+                          .instance
+                          .signInWithEmailAndPassword(
+                        email: _username.text,
+                        password: _password.text,
+                      );
+
+                      User? user = userCredential.user;
+                      print('Signed in: ${user!.uid}');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  BottomBarWidget()));
+                    } catch (e) {
+                      Toast.show('Credentials Not Match');
+                    }
                   },
+
+                  // {
+                  //   FirebaseAuth.instance
+                  //       .signInWithEmailAndPassword(
+                  //           email: _username.text, password: _password.text)
+                  //       .then(
+                  //         (value) => Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(
+                  //             builder: (context) => const BottomBarWidget(),
+                  //           ),
+                  //         ),
+                  //       )
+                  //       .onError(
+                  //           (error, stackTrace) => print("$error".toString()));
+                  // },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black, elevation: 7),
                   child: const Text(
