@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "268199927256",
+    "project_id": "focusio-52ec3",
+    "storage_bucket": "focusio-52ec3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268199927256:android:b13dfeb5d137d5873066ad",
+        "android_client_info": {
+          "package_name": "com.example.focusio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAySygTzg78L1Cms5SMsYeA2QQNPG2ZAxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
