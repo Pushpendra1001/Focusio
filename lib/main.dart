@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:focusio/views/Pages/Home_Page.dart';
+import 'package:focusio/views/Pages/Signin.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -14,9 +15,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+        colorScheme: const ColorScheme.dark(),
+      ),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const SignIn(),
     );
   }
 }
