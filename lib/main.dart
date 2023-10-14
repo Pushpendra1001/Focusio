@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:focusio/views/Pages/Home_Page.dart';
 import 'package:focusio/views/Pages/Signin.dart';
 import 'package:focusio/views/Pages/Signup.dart';
+import 'package:focusio/views/widgets/Colors.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        colorScheme: const ColorScheme.dark(),
+        colorScheme: const ColorScheme.dark(
+            background: darkLevel1, brightness: Brightness.light),
       ),
       debugShowCheckedModeBanner: false,
       home: const SignIn(),

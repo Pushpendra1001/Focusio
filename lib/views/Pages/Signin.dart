@@ -1,12 +1,9 @@
-// ignore_for_file: file_names, avoid_print, camel_case_types, duplicate_ignore, prefer_typing_uninitialized_variables, non_constant_identifier_names
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:focusio/views/Pages/Home_Page.dart';
 import 'package:focusio/views/Pages/Signup.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// ignore: camel_case_types
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
 
@@ -42,7 +39,6 @@ class _SignInState extends State<SignIn> {
               const SizedBox(
                 height: 30,
               ),
-              // email id
               login_field(
                 controller: _username,
                 hint_text: "Enter Your Email",
@@ -52,15 +48,12 @@ class _SignInState extends State<SignIn> {
               const SizedBox(
                 height: 15,
               ),
-              //  password
               login_field(
                 controller: _password,
                 hint_text: "Enter Password",
                 obscuretext: true,
                 hide: true,
               ),
-
-              // forget password line
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 35, vertical: 8),
                 child: Row(
@@ -76,7 +69,6 @@ class _SignInState extends State<SignIn> {
               const SizedBox(
                 height: 20,
               ),
-              // login button
               SizedBox(
                 width: MediaQuery.of(context).size.width - 80,
                 height: 60,
@@ -97,9 +89,7 @@ class _SignInState extends State<SignIn> {
                             (error, stackTrace) => print("$error".toString()));
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black, elevation: 7
-                      // fixedSize: const Size(340, 50),
-                      ),
+                      backgroundColor: Colors.black, elevation: 7),
                   child: const Text(
                     "Sign in",
                     style: TextStyle(color: Colors.white),
@@ -121,20 +111,16 @@ class _SignInState extends State<SignIn> {
                         ));
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white, elevation: 7
-                      // fixedSize: const Size(340, 50),
-                      ),
+                      backgroundColor: Colors.white, elevation: 7),
                   child: const Text(
                     "Create Account",
                     style: TextStyle(color: Colors.black),
                   ),
                 ),
               ),
-              // divider line
               const SizedBox(
                 height: 50,
               ),
-
               const Row(
                 children: [
                   Flexible(
@@ -163,7 +149,7 @@ class _SignInState extends State<SignIn> {
                   Container(
                     decoration: BoxDecoration(
                         border: Border.all(
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                         borderRadius: BorderRadius.circular(20)),
                     child: Padding(
@@ -179,7 +165,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white),
+                        border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.circular(20)),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -191,8 +177,6 @@ class _SignInState extends State<SignIn> {
                   ),
                 ],
               ),
-
-              //  sign in with other apps
             ],
           ),
         ),
@@ -200,8 +184,6 @@ class _SignInState extends State<SignIn> {
     );
   }
 }
-
-// Login Field
 
 class login_field extends StatelessWidget {
   final controller;
@@ -224,6 +206,7 @@ class login_field extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           border: const OutlineInputBorder(),
+          enabledBorder: const OutlineInputBorder(),
           hintText: hint_text,
           suffixIcon:
               hide ? const Icon(Icons.remove_red_eye) : const SizedBox(),
