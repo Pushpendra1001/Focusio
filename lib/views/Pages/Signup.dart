@@ -86,7 +86,9 @@ class _SignUpState extends State<SignUp> {
                   onPressed: () {
                     FirebaseAuth.instance
                         .createUserWithEmailAndPassword(
-                            email: _username.text, password: _password.text)
+                          email: _username.text,
+                          password: _password.text,
+                        )
                         .then((value) => (value) {
                               Navigator.push(
                                       context,
