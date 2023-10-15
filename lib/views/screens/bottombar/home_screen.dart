@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:focusio/views/widgets/Colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -54,10 +56,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       hintText: "What You Want to learn ?",
-                      suffixIcon: Icon(Icons.search),
-                      focusColor: Colors.black,
+                      hintStyle: TextStyle(color: tealLevel5),
+                      suffixIcon: Icon(
+                        Icons.search,
+                        color: tealLevel3,
+                      ),
+                      focusColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                        borderSide: BorderSide(color: tealLevel3),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
                     ),
                   ),
                 ),

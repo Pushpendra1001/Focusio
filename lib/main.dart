@@ -32,17 +32,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme: ThemeData(
           colorScheme: const ColorScheme.dark(
-              background: darkLevel1, brightness: Brightness.light),
+              background: darkLevel1, brightness: Brightness.dark),
         ),
         debugShowCheckedModeBanner: false,
-        home: StreamBuilder(stream: FirebaseAuth.instance.authStateChanges(), builder: (context, snapshot) {
-          if(snapshot.hasData) {
-            return const BottomBarWidget();
-          }
-          else {
-            return const SignInScreen();
-          }
-        })
-    );
+        home: StreamBuilder(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return const BottomBarWidget();
+              } else {
+                return const SignInScreen();
+              }
+            }));
   }
 }
