@@ -42,7 +42,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
       bottomNavigationBar: Container(
         color: Colors.transparent.withOpacity(0.0),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 3),
           child: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(35), color: darkLevel1),
@@ -69,7 +69,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
                     GButton(
                       icon: Icons.person,
                       iconColor: tealColor,
-                      text: "Profile",
+                      text: "User",
                     ),
                   ],
                   selectedIndex: _selectedIndex,

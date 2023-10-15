@@ -146,7 +146,8 @@ class ProfileView extends StatelessWidget {
                 profile_option("History", Icons.pie_chart),
                 profile_option("ChatBot", Icons.payment),
                 profile_option("Settings", Icons.settings),
-                profile_option("Logout", Icons.logout)
+                InkWell(
+                    onTap: () {}, child: profile_option("Logout", Icons.logout))
               ],
             )
           ],
