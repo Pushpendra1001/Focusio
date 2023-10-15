@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:focusio/views/models/channel_model.dart';
 import 'package:focusio/views/models/video_model.dart';
 import 'package:focusio/views/screens/video_screen.dart';
+import 'package:focusio/views/widgets/Colors.dart';
 import 'package:focusio/views/widgets/api_services.dart';
 
 class YoutubeScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class YoutubeScreen extends StatefulWidget {
 
 class _YoutubeScreenState extends State<YoutubeScreen> {
   late Channel _channel;
-  bool _isLoading = false;
+  bool _isLoading = true;
 
   @override
   void initState() {
@@ -28,6 +29,7 @@ class _YoutubeScreenState extends State<YoutubeScreen> {
         .fetchChannel(channelId: 'UCeVMnSShP_Iviwkknt83cww');
     setState(() {
       _channel = channel;
+      _isLoading = false;
     });
   }
 
@@ -37,7 +39,7 @@ class _YoutubeScreenState extends State<YoutubeScreen> {
       padding: const EdgeInsets.all(20.0),
       height: 100.0,
       decoration: const BoxDecoration(
-        color: Colors.white,
+        color: darkLevel3,
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
@@ -62,7 +64,7 @@ class _YoutubeScreenState extends State<YoutubeScreen> {
                 Text(
                   _channel.title,
                   style: const TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 20.0,
                     fontWeight: FontWeight.w600,
                   ),
@@ -94,11 +96,11 @@ class _YoutubeScreenState extends State<YoutubeScreen> {
         ),
       ),
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+        margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 2.0),
         padding: const EdgeInsets.all(10.0),
         height: 140.0,
         decoration: const BoxDecoration(
-          color: Colors.white,
+          color: darkLevel1,
           boxShadow: [
             BoxShadow(
               color: Colors.black12,
@@ -118,7 +120,7 @@ class _YoutubeScreenState extends State<YoutubeScreen> {
               child: Text(
                 video.title,
                 style: const TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 18.0,
                 ),
               ),
@@ -143,35 +145,38 @@ class _YoutubeScreenState extends State<YoutubeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _channel != null
-          ? NotificationListener<ScrollNotification>(
-        onNotification: (ScrollNotification scrollDetails) {
-          if (!_isLoading &&
-              _channel.videos.length != int.parse(_channel.videoCount) &&
-              scrollDetails.metrics.pixels ==
-                  scrollDetails.metrics.maxScrollExtent) {
-            _loadMoreVideos();
-          }
-          return false;
-        },
-        child: ListView.builder(
-          itemCount: 1 + _channel.videos.length,
-          itemBuilder: (BuildContext context, int index) {
-            if (index == 0) {
-              return _buildProfileInfo();
-            }
-            Video video = _channel.videos[index - 1];
-            return _buildVideo(video);
-          },
-        ),
-      )
-          : Center(
-        child: CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(
-            Theme.of(context).primaryColor, // Red
-          ),
-        ),
-      ),
+      body: _isLoading == true
+          ? const Center(child: CircularProgressIndicator())
+          : _channel != null
+              ? NotificationListener<ScrollNotification>(
+                  onNotification: (ScrollNotification scrollDetails) {
+                    if (!_isLoading &&
+                        _channel.videos.length !=
+                            int.parse(_channel.videoCount) &&
+                        scrollDetails.metrics.pixels ==
+                            scrollDetails.metrics.maxScrollExtent) {
+                      _loadMoreVideos();
+                    }
+                    return false;
+                  },
+                  child: ListView.builder(
+                    itemCount: 1 + _channel.videos.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      if (index == 0) {
+                        return _buildProfileInfo();
+                      }
+                      Video video = _channel.videos[index - 1];
+                      return _buildVideo(video);
+                    },
+                  ),
+                )
+              : Center(
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Theme.of(context).primaryColor, // Red
+                    ),
+                  ),
+                ),
     );
   }
 }

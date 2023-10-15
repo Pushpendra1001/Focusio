@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:focusio/views/screens/bottombar/home_screen.dart';
 import 'package:focusio/views/screens/users/Signup.dart';
+import 'package:focusio/views/widgets/Colors.dart';
 import 'package:focusio/views/widgets/bottomBar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:toast/toast.dart';
@@ -88,8 +89,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  BottomBarWidget()));
+                              builder: (context) => const BottomBarWidget()));
                     } catch (e) {
                       Toast.show('Credentials Not Match');
                     }
@@ -228,7 +228,8 @@ class login_field extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           border: const OutlineInputBorder(),
-          enabledBorder: const OutlineInputBorder(),
+          enabledBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white)),
           hintText: hint_text,
           suffixIcon:
               hide ? const Icon(Icons.remove_red_eye) : const SizedBox(),

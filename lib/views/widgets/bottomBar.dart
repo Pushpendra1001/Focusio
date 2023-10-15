@@ -57,12 +57,12 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
                     GButton(
                       icon: Icons.search,
                       iconColor: tealColor,
-                      text: "Search",
+                      text: "Youtube",
                     ),
                     GButton(
-                      icon: Icons.video_library,
+                      icon: Icons.data_object_outlined,
                       iconColor: tealColor,
-                      text: "Youtube",
+                      text: "AI",
                     ),
                     GButton(
                       icon: Icons.person,
