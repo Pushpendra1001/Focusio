@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:focusio/views/screens/bottombar/content.dart';
 import 'package:focusio/views/widgets/Colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -16,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List Images = [
     "https://imgs.search.brave.com/G1qVWcisjEs-v4rqv6ZMrbpJqhL37iDShXoZdnlqXdQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9zZW5q/YWlvLmItY2RuLm5l/dC9wdWJsaWMvbWVk/aWEvOWJKaExrSUpm/dWtTQWg1NHVVTmQ1/UnhoLmpwZWc",
     "https://imgs.search.brave.com/7u3ypuwT3STnlqfpKIpms2CEEoHCUuqkrrimobNwAB8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA2LzExLzQzLzQx/LzM2MF9GXzYxMTQz/NDE3OV9DSktIcVN2/N2hxN1BubmlMOEhq/U3NPSFRmcTJjd0Za/Mi5qcGc",
+    "https://imgs.search.brave.com/a9ClSk44d-heklqN3whR2IHX22abbdr9SxMmUZVkeLg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9taXJv/Lm1lZGl1bS5jb20v/djIvMSpyajc5Zl9k/U3JEMEE1RU5ra1FB/eEpRLnBuZw",
   ];
 
   List Trending_Tech = [
@@ -92,25 +94,65 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 230,
-                  child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 0,
-                    ),
-                    itemCount: 2,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Image.network(
-                          Images[index],
-                          fit: BoxFit.fill,
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                    height: 230,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Content(
+                                        Title: "Ai", accessValue: 2),
+                                  ));
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Image.network(
+                                Images[0],
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Content(
+                                        Title: "Privacy", accessValue: 3),
+                                  ));
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Image.network(
+                                Images[1],
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Content(
+                                        Title: "Ai Tools", accessValue: 4),
+                                  ));
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Image.network(
+                                Images[2],
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )),
                 const SizedBox(
                   height: 10,
                 ),
@@ -129,67 +171,90 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    child: Stack(
-                      children: [
-                        Image.network(Trending_Tech[1]),
-                        Positioned(
-                          bottom: 25,
-                          left: 10,
-                          child: Text(
-                            "Cyber Secutiry",
-                            style: GoogleFonts.aboreto(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Content(
+                                Title: "Cybersecurity", accessValue: 0),
+                          ));
+                    },
+                    child: Container(
+                      child: Stack(
+                        children: [
+                          Image.network(Trending_Tech[1]),
+                          Positioned(
+                            bottom: 25,
+                            left: 10,
+                            child: Text(
+                              "Cyber Secutiry",
+                              style: GoogleFonts.aboreto(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                        Positioned(
-                          bottom: 5,
-                          left: 15,
-                          child: Text(
-                            "View More",
-                            style: GoogleFonts.aboreto(
-                              fontSize: 12,
-                              color: Colors.red,
-                              fontWeight: FontWeight.bold,
+                          Positioned(
+                            bottom: 5,
+                            left: 15,
+                            child: Text(
+                              "View More",
+                              style: GoogleFonts.aboreto(
+                                fontSize: 12,
+                                color: tealLevel3,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    child: Stack(
-                      children: [
-                        Image.network(Trending_Tech[2]),
-                        Positioned(
-                          bottom: 25,
-                          left: 10,
-                          child: Text(
-                            "Machine Learning",
-                            style: GoogleFonts.aboreto(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Content(
+                                Title: "Machine Learning", accessValue: 1),
+                          ));
+                    },
+                    child: Container(
+                      child: Stack(
+                        children: [
+                          Image.network(
+                            Trending_Tech[0],
+                            fit: BoxFit.contain,
+                          ),
+                          Positioned(
+                            bottom: 25,
+                            left: 10,
+                            child: Text(
+                              "Machine Learning",
+                              style: GoogleFonts.aboreto(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                        Positioned(
-                          bottom: 5,
-                          left: 15,
-                          child: Text(
-                            "View More",
-                            style: GoogleFonts.aboreto(
-                              fontSize: 12,
-                              color: Colors.red,
-                              fontWeight: FontWeight.bold,
+                          Positioned(
+                            bottom: 5,
+                            left: 15,
+                            child: Text(
+                              "View More",
+                              style: GoogleFonts.aboreto(
+                                fontSize: 12,
+                                color: tealLevel3,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
