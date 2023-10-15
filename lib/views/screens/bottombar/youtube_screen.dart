@@ -146,7 +146,9 @@ class _YoutubeScreenState extends State<YoutubeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _isLoading == true
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
           : _channel != null
               ? NotificationListener<ScrollNotification>(
                   onNotification: (ScrollNotification scrollDetails) {
@@ -159,15 +161,39 @@ class _YoutubeScreenState extends State<YoutubeScreen> {
                     }
                     return false;
                   },
-                  child: ListView.builder(
-                    itemCount: 1 + _channel.videos.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      if (index == 0) {
-                        return _buildProfileInfo();
-                      }
-                      Video video = _channel.videos[index - 1];
-                      return _buildVideo(video);
-                    },
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(24.0),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            enabledBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white)),
+                            border: const OutlineInputBorder(),
+                            suffixIcon: const Icon(Icons.send_rounded),
+                            hintText: "What You Want to learn ?",
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.grey.shade700),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(8)),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: 1 + _channel.videos.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            if (index == 0) {
+                              return _buildProfileInfo();
+                            }
+                            Video video = _channel.videos[index - 1];
+                            return _buildVideo(video);
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 )
               : Center(

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:focusio/views/pages/sidebar/Profile.dart';
 import 'package:focusio/views/screens/bottombar/home_screen.dart';
 import 'package:focusio/views/screens/bottombar/studypt_screen.dart';

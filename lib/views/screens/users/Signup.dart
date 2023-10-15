@@ -47,7 +47,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   fit: BoxFit.contain,
                 ),
                 Text(
-                  "Welcome to Our Family",
+                  "Join Our Family",
                   style: GoogleFonts.aBeeZee(fontSize: 23),
                 ),
                 const SizedBox(

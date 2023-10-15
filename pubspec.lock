@@ -33,6 +33,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  brain_fusion:
+    dependency: "direct main"
+    description:
+      name: brain_fusion
+      sha256: "604b2fe0bfe7924eab4942099f895661ac6aad817c50df8681fe04c926d2c0f4"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.1"
   characters:
     dependency: transitive
     description:

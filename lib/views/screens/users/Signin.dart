@@ -171,7 +171,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   Container(
                     decoration: BoxDecoration(
                         border: Border.all(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                         borderRadius: BorderRadius.circular(20)),
                     child: Padding(
@@ -187,7 +187,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
+                        border: Border.all(color: Colors.white),
                         borderRadius: BorderRadius.circular(20)),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
