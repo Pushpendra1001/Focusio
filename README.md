@@ -38,4 +38,4 @@ modification, are permitted provided that the following conditions are met:
 
 ## License
 
-[MIT License](LICENSE)
+[BSD 3-Clause License](LICENSE)
