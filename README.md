@@ -16,11 +16,6 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 
-## License
-
-[MIT License](LICENSE)
-
-
 ## Copyright
 
 Copyright (c) 2023, Rishi Raj & Pushpendra Baswal
@@ -38,3 +33,9 @@ modification, are permitted provided that the following conditions are met:
 3. Neither the name of the copyright holder nor the names of its
    contributors may be used to endorse or promote products derived from
    this software without specific prior written permission.
+
+  
+
+## License
+
+[MIT License](LICENSE)
